@@ -1,0 +1,7 @@
+
+console-link-cronjob:
+  serviceAccount:
+    create: true
+    name: console-link-cronjob
+
+  rbac: true
