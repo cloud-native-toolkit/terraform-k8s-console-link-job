@@ -1,6 +1,6 @@
 dependencies:
 - name: console-link-cronjob
   repository: https://charts.cloudnativetoolkit.dev/
-  version: 0.4.0
-digest: sha256:f4455cc1cef17043cb0c19e2915c47187f1bcd14ad7ab49e4faf17adbe39a5e0
-generated: "2021-11-03T23:51:08.259878-05:00"
+  version: 0.5.1
+digest: sha256:7c443872ffbb86ad7a73f8da57e70fdccb697e647905142967414238de5798f5
+generated: "2021-11-04T00:45:18.66194-05:00"
