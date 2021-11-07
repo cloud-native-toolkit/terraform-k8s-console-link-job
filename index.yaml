@@ -37,6 +37,41 @@ versions:
           output: name
         type: string
         description: The namespace where the console link should be deployed
+    version: v1.0.1
+    outputs:
+      - name: namespace
+        description: output "namespace" {   value = var.namespace   depends_on = [null_resource.install_cronjob] }
+  - platforms:
+      - kubernetes
+      - ocp4
+    dependencies:
+      - id: cluster
+        refs:
+          - source: github.com/ibm-garage-cloud/terraform-ibm-container-platform
+            version: ">= 1.7.0"
+          - source: github.com/ibm-garage-cloud/terraform-ibm-ocp-vpc
+            version: ">= 1.0.0"
+          - source: github.com/ibm-garage-cloud/terraform-k8s-ocp-cluster
+            version: ">= 2.0.0"
+          - source: github.com/ibm-garage-cloud/terraform-ocp-login
+            version: ">= 1.0.0"
+      - id: namespace
+        refs:
+          - source: github.com/ibm-garage-cloud/terraform-k8s-namespace
+            version: ">= 2.1.0"
+    variables:
+      - name: cluster_config_file
+        moduleRef:
+          id: cluster
+          output: config_file_path
+        type: string
+        description: Config file for Kubernetes cluster.
+      - name: namespace
+        moduleRef:
+          id: namespace
+          output: name
+        type: string
+        description: The namespace where the console link should be deployed
     version: v1.0.0
   - platforms:
       - kubernetes
